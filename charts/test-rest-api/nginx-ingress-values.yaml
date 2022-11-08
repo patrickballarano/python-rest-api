@@ -1,0 +1,19 @@
+---
+# rbac:
+#   create: true
+
+serviceAccount:
+  create: true
+  name: nginx-ingress-public
+
+controller:
+  ingressClassResource:
+    enabled: true
+    default: true
+
+  replicaCount: 3
+  minAvailable: 3
+  updateStrategy:
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 0
